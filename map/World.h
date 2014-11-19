@@ -3,12 +3,12 @@
 
 namespace Ares
 {
-    class World
-    {
-    public:
-        World();
-        ~World();
-    private:
-        Sector* planetFall;
-    };
+	class World
+	{
+	public:
+		World();
+		~World();
+	private:
+		Sector* planetFall;
+	};
 }

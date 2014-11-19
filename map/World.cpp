@@ -4,10 +4,10 @@ using namespace Ares;
 
 World::World()
 {
-    this->planetFall = new Sector();
+	this->planetFall = new Sector();
 }
 
 World::~World()
 {
-    delete this->planetFall;
+	delete this->planetFall;
 }

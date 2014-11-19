@@ -5,12 +5,12 @@ using std::vector;
 
 namespace Ares
 {
-    class Sector
-    {
-    public:
-        Sector();
-        ~Sector();
-    private:
-        vector<vector<Tile*>*>* map;
-    };
+	class Sector
+	{
+	public:
+		Sector();
+		~Sector();
+	private:
+		vector<vector<Tile*>*>* map;
+	};
 }

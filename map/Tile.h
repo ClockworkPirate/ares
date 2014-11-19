@@ -4,10 +4,10 @@ using std::vector;
 
 namespace Ares
 {
-    class Tile
-    {
-    public:
-        Tile();
-        ~Tile();
-    };
+	class Tile
+	{
+	public:
+		Tile();
+		~Tile();
+	};
 }
