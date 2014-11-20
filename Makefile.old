@@ -1,0 +1,40 @@
+CXX=clang++
+SDL=-framework SDL2
+STD=-std=c++1y
+CFLAGS=-Wall -c $(STD) -I/Library/Frameworks/SDL2.framework/Headers -F/Library/Frameworks
+LFLAGS=$(SDL) $(STD) -F/Library/Frameworks
+
+MAP=map/Sector.o map/Tile.o map/World.o
+MAPNAMES=sector tile world
+
+GAME=game/Game.o game/Player.o
+GAMENAMES=game player
+
+VIEW=view/View.o
+VIEWNAMES=view
+
+all: ares
+
+ares: $(MAPNAMES) $(GAMENAMES) $(VIEWNAMES)
+	$(CXX) $(LFLAGS) Ares.cpp $(MAP) $(GAME) $(VIEW) -o ares
+
+sector: map/Sector.cpp tile
+	$(CXX) $(CFLAGS) map/Sector.cpp -o map/Sector.o
+
+tile: map/Tile.cpp
+	$(CXX) $(CFLAGS) map/Tile.cpp -o map/Tile.o
+
+world: map/World.cpp sector
+	$(CXX) $(CFLAGS) map/World.cpp -o map/World.o
+
+game: game/Game.cpp player world view
+	$(CXX) $(CFLAGS) game/Game.cpp -o game/Game.o
+
+player: game/Player.cpp
+	$(CXX) $(CFLAGS) game/Player.cpp -o game/Player.o
+
+view: view/View.cpp
+	$(CXX) $(CFLAGS) view/View.cpp -o view/View.o
+
+clean:
+	rm ares */*.o
